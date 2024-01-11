@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="sizeTxtNetogy">16sp</dimen>
+    <dimen name="marg_16dp">16dp</dimen>
+    <dimen name="imgSize">48dp</dimen>
+    <dimen name="img2Dimension">32dp</dimen>
 </resources>
