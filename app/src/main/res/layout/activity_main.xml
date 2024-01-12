@@ -10,12 +10,12 @@
         android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/marg_16dp"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="@dimen/marg_16dp"
         android:text="@string/autorNetology"
         app:layout_constraintBottom_toTopOf="@+id/published"
-        app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintEnd_toStartOf="@id/img_menu"
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="@+id/avatar"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -41,36 +41,37 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageButton
-        android:id="@+id/menu"
+        android:id="@+id/img_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/marg_16dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar"
-        app:srcCompat="@android:drawable/btn_star_big_off" />
+        app:srcCompat="@drawable/ic_more_vert_24" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+        android:id="@+id/barrier_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marg_16dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="avatar,published,menu"
+        app:constraint_referenced_ids="avatar,published,img_menu"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtNetology"
+        android:id="@+id/txt_netology"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marg_16dp"
         android:layout_marginTop="@dimen/marg_16dp"
         android:layout_marginEnd="@dimen/marg_16dp"
-        android:textSize="@dimen/sizeTxtNetogy"
+        android:autoLink="web"
         android:text="@string/txtNetology"
+        android:textSize="@dimen/sizeTxtNetogy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/barrier"
-        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+        app:layout_constraintStart_toStartOf="@id/barrier_up"
+        app:layout_constraintTop_toBottomOf="@+id/barrier_up" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
@@ -78,71 +79,72 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marg_16dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="txtNetology"
+        app:constraint_referenced_ids="txt_netology"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageFavorite"
+        android:id="@+id/image_favorite"
         android:layout_width="@dimen/img2Dimension"
         android:layout_height="@dimen/img2Dimension"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="306dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier2"
         app:srcCompat="@drawable/outline_favorite_border_24" />
 
     <TextView
-        android:id="@+id/textFavorites"
+        android:id="@+id/text_favorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="10"
         android:textSize="@dimen/sizeTxtNetogy"
-        app:layout_constraintBottom_toBottomOf="@+id/imageFavorite"
-        app:layout_constraintStart_toEndOf="@+id/imageFavorite"
-        app:layout_constraintTop_toTopOf="@+id/imageFavorite" />
+        app:layout_constraintBottom_toBottomOf="@+id/image_favorite"
+        app:layout_constraintStart_toEndOf="@+id/image_favorite"
+        app:layout_constraintTop_toTopOf="@+id/image_favorite" />
 
     <ImageView
-        android:id="@+id/imageShare"
+        android:id="@+id/image_share"
         android:layout_width="@dimen/img2Dimension"
         android:layout_height="@dimen/img2Dimension"
         android:layout_marginStart="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageFavorite"
-        app:layout_constraintStart_toEndOf="@+id/textFavorites"
-        app:layout_constraintTop_toTopOf="@+id/imageFavorite"
+        app:layout_constraintBottom_toBottomOf="@+id/image_favorite"
+        app:layout_constraintStart_toEndOf="@+id/text_favorites"
+        app:layout_constraintTop_toTopOf="@+id/image_favorite"
         app:srcCompat="@drawable/baseline_share_24" />
 
     <TextView
-        android:id="@+id/textViewShare"
+        android:id="@+id/textView_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="5"
         android:textSize="@dimen/sizeTxtNetogy"
-        app:layout_constraintBottom_toBottomOf="@+id/imageShare"
-        app:layout_constraintStart_toEndOf="@+id/imageShare"
-        app:layout_constraintTop_toTopOf="@+id/imageShare" />
+        app:layout_constraintBottom_toBottomOf="@+id/image_share"
+        app:layout_constraintStart_toEndOf="@+id/image_share"
+        app:layout_constraintTop_toTopOf="@+id/image_share" />
 
     <ImageView
-        android:id="@+id/imageeye"
+        android:id="@+id/image_eye"
         android:layout_width="@dimen/img2Dimension"
         android:layout_height="@dimen/img2Dimension"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/texteye"
-        app:layout_constraintEnd_toStartOf="@+id/texteye"
-        app:layout_constraintTop_toTopOf="@+id/texteye"
+        app:layout_constraintBottom_toBottomOf="@+id/text_eye"
+        app:layout_constraintEnd_toStartOf="@+id/text_eye"
+        app:layout_constraintTop_toTopOf="@+id/text_eye"
         app:srcCompat="@drawable/baseline_remove_red_eye_24" />
 
     <TextView
-        android:id="@+id/texteye"
+        android:id="@+id/text_eye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/marg_16dp"
-        android:text="10"
+        android:text="1000"
         android:textSize="@dimen/sizeTxtNetogy"
-        app:layout_constraintBottom_toBottomOf="@+id/imageFavorite"
+        app:layout_constraintBottom_toBottomOf="@+id/image_favorite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageFavorite" />
+        app:layout_constraintTop_toTopOf="@+id/image_favorite" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
