@@ -67,6 +67,7 @@
         android:layout_marginTop="@dimen/marg_16dp"
         android:layout_marginEnd="@dimen/marg_16dp"
         android:autoLink="web"
+        android:text="@string/txtNetology"
         android:textSize="@dimen/sizeTxtNetogy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/barrier_up"
