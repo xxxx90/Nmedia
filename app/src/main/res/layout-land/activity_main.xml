@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_netology"
+        android:id="@+id/content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/marg_16dp"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marg_16dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="txt_netology"
+        app:constraint_referenced_ids="content"
 
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,7 +90,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_netology"
+        app:layout_constraintTop_toBottomOf="@+id/content"
         app:srcCompat="@drawable/outline_favorite_border_24" />
 
     <TextView
