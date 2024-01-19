@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 published.text = post.published
                 content.text = post.content
                 textLikes.text = transform(post.likes)
-                textViewShare.text = post.share.toString()
+                textViewShare.text = transform( post.share)
 
                 like.setImageResource(
                     if (post.likedByMe) R.drawable.baseline_favorite_red else R.drawable.outline_favorite_border_24
@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
             binding.like.setOnClickListener {
                 viewModel.like()
             }
-            
+            binding.imageShare.setOnClickListener {
+                viewModel.share()
+            }
         }
 
     }
