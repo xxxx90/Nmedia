@@ -9,14 +9,19 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
-typealias onClickListener = (Post) -> Unit
+typealias onClickListenerLike = (Post) -> Unit
+typealias onClickListenerShare = (Post) -> Unit
 
-class PostsAdapter(private val onClick: onClickListener) :
+
+class PostsAdapter(
+    private val onListenerLike: onClickListenerLike,
+    private val onListenerShare: onClickListenerShare
+) :
     ListAdapter<Post, PostViewHolder>(PostDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PostViewHolder(view, onClick, )
+        val binding = CardPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PostViewHolder(binding, onListenerLike, onListenerShare)
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
@@ -24,8 +29,11 @@ class PostsAdapter(private val onClick: onClickListener) :
     }
 }
 
-class PostViewHolder(private val binding: CardPostBinding, private val onClick: onClickListener) :
-    RecyclerView.ViewHolder(binding.root) {
+class PostViewHolder(
+    private val binding: CardPostBinding,
+    private val onListenerLike: onClickListenerLike,
+    private val onListenerShare: onClickListenerShare,
+) :    RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         with(binding) {
             author.text = post.author
@@ -40,11 +48,12 @@ class PostViewHolder(private val binding: CardPostBinding, private val onClick: 
             textLikes.text = transform(post.likes)
             textViewShare.text = transform(post.share)
             like.setOnClickListener {
-                onClick(post)
+                onListenerLike(post)
             }
             imageShare.setOnClickListener {
-                onClick(post)
 
+            //    post.copy(share =post.share+1)
+                onListenerShare(post)
 
             }
         }
