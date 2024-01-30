@@ -58,7 +58,7 @@
         android:layout_marginTop="@dimen/marg_16dp"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar,published,img_menu"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
     <TextView
         android:id="@+id/content"

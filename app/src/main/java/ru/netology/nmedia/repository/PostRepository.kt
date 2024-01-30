@@ -10,6 +10,6 @@ interface PostRepository {
     fun removeById (id: Long)
     fun save (post: Post)
 
-    fun cancell()
+    fun cancell(post: Post)
 }
 

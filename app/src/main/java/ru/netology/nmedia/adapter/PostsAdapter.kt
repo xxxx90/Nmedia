@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.viewmodel.empty
 
 interface OnInteractionListener {
     fun onLike(post: Post)
     fun onRemove(post: Post)
     fun onEdit(post: Post)
     fun onShare(post: Post)
-    fun cancell()
+    fun cancell(empty: Post)
 }
 
 
@@ -79,7 +80,7 @@ class PostViewHolder(
                             }
 
                             R.id.closeEdit -> {
-                                onInteractionListener.cancell()
+                                onInteractionListener.cancell(empty)
 
                                 true
                             }

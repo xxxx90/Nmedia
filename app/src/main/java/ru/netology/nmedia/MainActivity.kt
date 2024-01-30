@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
-import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.util.AndroidUtils
 
 class MainActivity : AppCompatActivity() {
@@ -37,8 +36,8 @@ class MainActivity : AppCompatActivity() {
                 viewModel.share(post.id)
             }
 
-            override fun cancell() {
-                viewModel.cancell()
+            override fun cancell(empty: Post) {
+                viewModel.cancell(post=empty)
             }
 
 

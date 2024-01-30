@@ -75,8 +75,12 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun cancell() {
+    override fun cancell(post: Post) {
+
     }
+
+//    override fun cancell() {
+//    }
 
     override fun removeById(id: Long) {
         posts = posts.filter { it.id != id }
