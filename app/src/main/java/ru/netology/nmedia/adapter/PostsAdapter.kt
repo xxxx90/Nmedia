@@ -16,7 +16,7 @@ interface OnInteractionListener {
     fun onRemove(post: Post)
     fun onEdit(post: Post)
     fun onShare(post: Post)
-    fun cancell(empty: Post)
+  //  fun cancell(empty: Post)
 }
 
 
@@ -78,13 +78,7 @@ class PostViewHolder(
 
                                 true
                             }
-
-                            R.id.closeEdit -> {
-                                onInteractionListener.cancell(empty)
-
-                                true
-                            }
-
+//
                             else -> false
                         }
 

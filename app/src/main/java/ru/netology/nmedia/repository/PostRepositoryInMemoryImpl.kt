@@ -75,9 +75,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun cancell(post: Post) {
-
-    }
+//    override fun cancell(post: Post) {    }
 
 //    override fun cancell() {
 //    }

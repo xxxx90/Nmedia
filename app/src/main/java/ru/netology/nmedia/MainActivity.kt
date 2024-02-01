@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
                 viewModel.share(post.id)
             }
 
-            override fun cancell(empty: Post) {
-                viewModel.cancell(post=empty)
-            }
+//            override fun cancell() {
+//                viewModel.cancell()
+//            }
 
 
         })
@@ -60,7 +60,14 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+        binding.closeEdit.setOnClickListener {
+            binding.edit.setText("")
+            binding.edit.clearFocus()
+            AndroidUtils.hideKeyboard(it)
+            binding.groupOnEdit.isVisible=false
+            viewModel.cancell()
 
+        }
         binding.save.setOnClickListener {
 
             val text = binding.edit.text.toString().trim()
@@ -76,13 +83,8 @@ class MainActivity : AppCompatActivity() {
             binding.groupOnEdit.isVisible=false
 
         }
-        binding.closeEdit.setOnClickListener {
-            binding.edit.setText("")
-            binding.edit.clearFocus()
-            AndroidUtils.hideKeyboard(it)
-            binding.groupOnEdit.isVisible=false
 
-        }
+
     }
 }
 
