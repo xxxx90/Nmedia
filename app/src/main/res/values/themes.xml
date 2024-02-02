@@ -3,7 +3,16 @@
     <style name="Base.Theme.Nmedia" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="buttonTint">#ff0000</item>
     </style>
 
     <style name="Theme.Nmedia" parent="Base.Theme.Nmedia" />
+
+    <style name="My" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="iconTint">@color/red</item>
+        <item name="android:minWidth">@dimen/imgSize</item>
+        <item name="android:minHeight">@dimen/imgSize</item>
+
+
+    </style>
 </resources>

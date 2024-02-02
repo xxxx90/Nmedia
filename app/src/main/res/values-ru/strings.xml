@@ -12,4 +12,6 @@
     <string name="now">сейчас</string>
     <string name="menu_edit">Редактирование</string>
     <string name="text_on_edit">Редактирование сообщения</string>
+    <string name="description_post_menu">Меню поста</string>
+    <string name="description_post_like">Нравится</string>
 </resources>

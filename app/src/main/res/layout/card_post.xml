@@ -40,16 +40,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <ImageButton
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/img_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/marg_16dp"
-        android:background="@android:color/transparent"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/description_post_menu"
+        app:icon="@drawable/ic_more_vert_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/avatar"
-        app:srcCompat="@drawable/ic_more_vert_24"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.Material3.Button.IconButton"
+        />
+
+
+
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_up"
@@ -84,15 +90,35 @@
 
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/like"
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+               android:id="@+id/like"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:contentDescription="@string/description_post_like"
+               app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+style="@style/My"
+               android:button="@drawable/ic_like_button"
+
+          />
+
+    <!--ImageView
+
+     tools:checked="@sample/posts.json/data/likedByMe"
+               tools:text="@sample/posts.json/data/likes"
+               style="@style/Widget.AppTheme.LikeCheckBox"
+
+
         android:layout_width="@dimen/img2Dimension"
         android:layout_height="@dimen/img2Dimension"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content"
-        app:srcCompat="@drawable/outline_favorite_border_24" />
+        app:srcCompat="@drawable/outline_favorite_border_24" /-->
+
+
 
     <TextView
         android:id="@+id/text_likes"

@@ -11,4 +11,6 @@
     <string name="now">now</string>
     <string name="menu_edit">Update</string>
     <string name="text_on_edit">Edit Message</string>
+    <string name="description_post_menu">Post menu</string>
+    <string name="description_post_like">Like</string>
 </resources>
