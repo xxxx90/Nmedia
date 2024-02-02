@@ -41,20 +41,16 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/img_menu"
+        style="@style/Widget.Material3.Button.IconButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/description_post_menu"
         app:icon="@drawable/ic_more_vert_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/Widget.Material3.Button.IconButton"
-        />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.constraintlayout.widget.Barrier
@@ -63,8 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marg_16dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="avatar,published,img_menu"
-         />
+        app:constraint_referenced_ids="avatar,published,img_menu" />
 
     <TextView
         android:id="@+id/content"
@@ -92,16 +87,17 @@
 
 
     <com.google.android.material.checkbox.MaterialCheckBox
-               android:id="@+id/like"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:contentDescription="@string/description_post_like"
-               app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-style="@style/My"
-               android:button="@drawable/ic_like_button"
+        android:id="@+id/like"
+        style="@style/My"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/ic_like_button"
+        android:contentDescription="@string/description_post_like"
+        app:layout_constraintStart_toStartOf="parent"
 
-          />
+        app:layout_constraintTop_toBottomOf="@+id/content"
+
+        />
 
     <!--ImageView
 
@@ -117,7 +113,6 @@ style="@style/My"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:srcCompat="@drawable/outline_favorite_border_24" /-->
-
 
 
     <TextView
