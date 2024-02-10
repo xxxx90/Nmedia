@@ -86,13 +86,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.google.android.material.checkbox.MaterialCheckBox
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
-        style="@style/My"
+        style="@style/Widget.AppTheme.LikeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:button="@drawable/ic_like_button"
+        android:checkable="true"
         android:contentDescription="@string/description_post_like"
+
+        app:icon="@drawable/ic_like_button"
+
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toBottomOf="@+id/content"
@@ -115,16 +118,7 @@
         app:srcCompat="@drawable/outline_favorite_border_24" /-->
 
 
-    <TextView
-        android:id="@+id/text_likes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="10"
-        android:textSize="@dimen/sizeTxtNetogy"
-        app:layout_constraintBottom_toBottomOf="@+id/like"
-        app:layout_constraintStart_toEndOf="@+id/like"
-        app:layout_constraintTop_toTopOf="@+id/like" />
+
 
     <ImageView
         android:id="@+id/image_share"
@@ -132,7 +126,7 @@
         android:layout_height="@dimen/img2Dimension"
         android:layout_marginStart="24dp"
         app:layout_constraintBottom_toBottomOf="@+id/like"
-        app:layout_constraintStart_toEndOf="@+id/text_likes"
+        app:layout_constraintStart_toEndOf="@+id/like"
         app:layout_constraintTop_toTopOf="@+id/like"
         app:srcCompat="@drawable/baseline_share_24" />
 

@@ -20,4 +20,10 @@
 
 
     </style>
+
+
+    <style name="Widget.AppTheme.LikeButton" parent="Widget.Material3.Button.TextButton.Icon">
+        <item name="iconTint">@color/like_checkbox_tint</item>
+
+    </style>
 </resources>

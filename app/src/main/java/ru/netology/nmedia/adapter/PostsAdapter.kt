@@ -46,7 +46,7 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            textLikes.text = transform(post.likes)
+        //    textLikes.text = transform(post.likes)
             textViewShare.text = transform(post.share)
 
 
@@ -54,7 +54,7 @@ class PostViewHolder(
 //            like.setImageResource(
 //                if (post.likedByMe) R.drawable.baseline_favorite_red else R.drawable.outline_favorite_border_24
 //            )
-            textLikes.text = transform(post.likes)
+            like.text = transform(post.likes)
             textViewShare.text = transform(post.share)
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
