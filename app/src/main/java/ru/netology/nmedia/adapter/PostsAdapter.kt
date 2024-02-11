@@ -47,7 +47,7 @@ class PostViewHolder(
             published.text = post.published
             content.text = post.content
         //    textLikes.text = transform(post.likes)
-            textViewShare.text = transform(post.share)
+            imageShare.text = transform(post.share)
 
 
             like.isChecked=post.likedByMe
@@ -55,7 +55,7 @@ class PostViewHolder(
 //                if (post.likedByMe) R.drawable.baseline_favorite_red else R.drawable.outline_favorite_border_24
 //            )
             like.text = transform(post.likes)
-            textViewShare.text = transform(post.share)
+                imageShare.text = transform(post.share)
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
