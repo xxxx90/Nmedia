@@ -36,6 +36,7 @@ class PostViewModel : ViewModel() {
 
     fun share(id: Long) = repository.share(id)
 
+    fun play (post: Post) = repository.play(post)
     fun removeById(id: Long) = repository.removeById(id)
 
     fun cancell(){

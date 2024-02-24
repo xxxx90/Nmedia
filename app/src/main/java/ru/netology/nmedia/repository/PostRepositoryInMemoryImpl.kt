@@ -2,7 +2,6 @@ package ru.netology.nmedia.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.R
 import ru.netology.nmedia.dto.Post
 
 class PostRepositoryInMemoryImpl : PostRepository {
@@ -16,6 +15,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
             likes = 1999,
             likedByMe = false,
             share = 1,
+            videoUrl = "https://www.youtube.com/shorts/-WNg-R3AkDY"
         ),
         Post(
             id = nextId++,
@@ -75,10 +75,14 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
+    override fun play(post: Post) {
+
+    }
+
+
+
 //    override fun cancell(post: Post) {    }
 
-//    override fun cancell() {
-//    }
 
     override fun removeById(id: Long) {
         posts = posts.filter { it.id != id }

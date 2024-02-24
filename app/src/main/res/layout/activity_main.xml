@@ -42,5 +42,28 @@
         app:barrierDirection="top"
         app:constraint_referenced_ids=" save" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="buttonPlay,imageVideo" />
+
+    <ImageView
+        android:id="@+id/imageVideo"
+        android:layout_width="70dp"
+        android:layout_height="71dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <Button
+        android:id="@+id/buttonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageVideo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

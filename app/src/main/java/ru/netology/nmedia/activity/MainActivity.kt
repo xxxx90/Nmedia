@@ -1,19 +1,16 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.result.launch
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
-import ru.netology.nmedia.util.AndroidUtils
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +37,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
-                viewModel.edit(post)
+               newPostLauncher.launch(post.content)
+
+                      viewModel.edit(post)
             }
 
             override fun onShare(post: Post) {
@@ -54,6 +53,16 @@ class MainActivity : AppCompatActivity() {
                 val chooser = Intent.createChooser(intent, getString(R.string.app_name))
                 startActivity(chooser)
             }
+
+            override fun play(post: Post) {
+                val txt = post.videoUrl
+                val inten= Intent(Intent.ACTION_VIEW,Uri.parse(txt))
+                startActivity(inten)
+            }
+
+
+
+
 
 //            override fun cancell() {
 //                viewModel.cancell()
@@ -72,22 +81,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
         viewModel.edited.observe(this) { post ->
-            if (post.id != 0L) {
+          //  if (post.id != 0L) {
              //   binding.groupOnEdit.isVisible = true
 
 
-            }
+          //  }
         }
-//        binding.closeEdit.setOnClickListener {
-//
-//            AndroidUtils.hideKeyboard(it)
-//            binding.groupOnEdit.isVisible = false
-//            viewModel.cancell()
 
-        //}
         binding.save.setOnClickListener {
-            newPostLauncher.launch()
+
+            newPostLauncher.launch("")
         }
+
+        binding.groupVideo.setOnClickListener {
+            newPostLauncher.launch("")
+            val txt="https://www.youtube.com/shorts/-WNg-R3AkDY"
+            val intent= Intent(Intent.ACTION_VIEW,Uri.parse(txt))
+            startActivity(intent)
+
+
+        }
+
+
     }
 }
 

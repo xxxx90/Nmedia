@@ -16,4 +16,5 @@
     <string name="description_post_menu">Меню поста</string>
     <string name="description_post_like">Нравится</string>
     <string name="description_post_save">Сохранить</string>
+    <string name="play">Смотреть</string>
 </resources>

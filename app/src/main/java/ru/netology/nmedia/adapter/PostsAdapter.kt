@@ -1,8 +1,13 @@
 package ru.netology.nmedia.adapter
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +21,8 @@ interface OnInteractionListener {
     fun onRemove(post: Post)
     fun onEdit(post: Post)
     fun onShare(post: Post)
-  //  fun cancell(empty: Post)
+
+    fun play (post: Post)
 }
 
 
@@ -49,7 +55,7 @@ class PostViewHolder(
         //    textLikes.text = transform(post.likes)
             imageShare.text = transform(post.share)
 
-
+groupVideo.isVisible=!post.videoUrl.isNullOrEmpty()
             like.isChecked=post.likedByMe
 //            like.setImageResource(
 //                if (post.likedByMe) R.drawable.baseline_favorite_red else R.drawable.outline_favorite_border_24
@@ -63,6 +69,13 @@ class PostViewHolder(
 
                 //    post.copy(share =post.share+1)
                 onInteractionListener.onShare(post)
+
+            }
+            groupVideo.setOnClickListener {
+                val txt = post.videoUrl
+                 
+                   startActivity( Intent(Intent.ACTION_VIEW, Uri.parse(txt)))
+
 
             }
             imgMenu.setOnClickListener {
@@ -89,6 +102,10 @@ class PostViewHolder(
             }
         }
 
+    }
+
+    private fun startActivity(intent: Intent) {
+        startActivity(intent)
     }
 
 
