@@ -22,7 +22,7 @@ interface OnInteractionListener {
     fun onEdit(post: Post)
     fun onShare(post: Post)
 
-    fun play (post: Post)
+    fun play(post: Post)
 }
 
 
@@ -52,32 +52,32 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-        //    textLikes.text = transform(post.likes)
+            //    textLikes.text = transform(post.likes)
             imageShare.text = transform(post.share)
 
-groupVideo.isVisible=!post.videoUrl.isNullOrEmpty()
-            like.isChecked=post.likedByMe
-//            like.setImageResource(
-//                if (post.likedByMe) R.drawable.baseline_favorite_red else R.drawable.outline_favorite_border_24
-//            )
+            groupVideo.isVisible = !post.videoUrl.isNullOrEmpty()
+            like.isChecked = post.likedByMe
+
             like.text = transform(post.likes)
-                imageShare.text = transform(post.share)
+            imageShare.text = transform(post.share)
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
+
             imageShare.setOnClickListener {
 
                 //    post.copy(share =post.share+1)
                 onInteractionListener.onShare(post)
-
             }
-            groupVideo.setOnClickListener {
-                val txt = post.videoUrl
-                 
-                   startActivity( Intent(Intent.ACTION_VIEW, Uri.parse(txt)))
 
-
+            imageVideo.setOnClickListener {
+                onInteractionListener.play(post)
             }
+
+            buttonPlay.setOnClickListener {
+                onInteractionListener.play(post)
+            }
+
             imgMenu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.option_post)

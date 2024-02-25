@@ -37,9 +37,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onEdit(post: Post) {
-               newPostLauncher.launch(post.content)
-
-                      viewModel.edit(post)
+                newPostLauncher.launch(post.content)
+                viewModel.edit(post)
             }
 
             override fun onShare(post: Post) {
@@ -56,18 +55,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun play(post: Post) {
                 val txt = post.videoUrl
-                val inten= Intent(Intent.ACTION_VIEW,Uri.parse(txt))
+                val inten = Intent(Intent.ACTION_VIEW, Uri.parse(txt))
                 startActivity(inten)
             }
-
-
-
-
-
-//            override fun cancell() {
-//                viewModel.cancell()
-//            }
-
 
         })
 
@@ -80,24 +70,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        viewModel.edited.observe(this) { post ->
-          //  if (post.id != 0L) {
-             //   binding.groupOnEdit.isVisible = true
+        viewModel.edited.observe(this) {
 
-
-          //  }
         }
+
+
+
 
         binding.save.setOnClickListener {
-
             newPostLauncher.launch("")
-        }
 
-        binding.groupVideo.setOnClickListener {
-            newPostLauncher.launch("")
-            val txt="https://www.youtube.com/shorts/-WNg-R3AkDY"
-            val intent= Intent(Intent.ACTION_VIEW,Uri.parse(txt))
-            startActivity(intent)
 
 
         }
