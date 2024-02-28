@@ -6,20 +6,17 @@ import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.viewmodel.empty
-import java.lang.reflect.Type
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 
-class PostRepositorySP (
-    context: Context
+class PostRepositoryFiles (
+    private val context: Context
 ) : PostRepository {
 
     private val gson = Gson()
-    private val prefs =context.getSharedPreferences("repo", Context.MODE_PRIVATE)
+
     private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
-    private val key = "posts"
+    private val fileName = "posts.gson"
 
     private var nextId = 1L
     private var posts = emptyList<Post>()
@@ -65,12 +62,13 @@ class PostRepositorySP (
     private val data = MutableLiveData(posts)
 
     init {
-      prefs.getString(key, null)?.let {
+        if (context.filesDir.resolve(fileName).exists()) {
+              context.openFileInput(fileName).bufferedReader().use {
 posts = gson.fromJson(it, type)
           nextId = posts.maxOfOrNull { it.id }?.inc() ?: 1
           data.value = posts
 
-      }
+      }}
     }
 
     override fun getAll(): LiveData<List<Post>> = data
@@ -98,9 +96,9 @@ posts = gson.fromJson(it, type)
     override fun save(post: Post) {
 
         if (post.id == 0L) {
-            posts = listOf(post.copy(id = nextId++, published = (SimpleDateFormat("dd.M.yyyy в hh:mm:ss").format(
+            posts = listOf(post.copy(id = nextId++, published = (SimpleDateFormat("dd.M.yyyy в HH:mm:ss").format(
                 Date()
-            )).toString(), author = "Netology")) + posts
+            )).toString(), author = "Netology", videoUrl = "")) + posts
         } else {
             posts = posts.map {
                 if (it.id != post.id) it else it.copy(content = post.content)
@@ -126,9 +124,9 @@ posts = gson.fromJson(it, type)
     }
 
     private fun sync() {
-        prefs.edit().apply{
-            putString(key,gson.toJson(posts))
-            apply()
+        context.openFileOutput(fileName, Context.MODE_PRIVATE).bufferedWriter().use{
+            it.write(gson.toJson(posts))
+
 
         }
 
